@@ -8,11 +8,11 @@
     "start-all": "concurrently yarn start && cd client && yarn start",
     "build-server": "tsc --project ./server"
   },
-  "proxy": "http://localhost:3001",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "concurrently": "^6.2.0",
     "express": "^4.17.1"
   },

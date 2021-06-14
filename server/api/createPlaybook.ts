@@ -1,19 +1,38 @@
 import fs from 'fs';
 import express from 'express';
 
+import { PlaybookInterface, StepInterface } from '../types/Playbook';
+
 const DATABASE_PATH = './server/db.json'
 
-const createPlaybook = (req: express.Request, res: express.Response): any => {
-  const data = req.body;
-  console.log({ data });
-  // try {
-  //   const data: Object = fs.readFileSync(DATABASE_PATH, 'utf8')
-  //   console.log(data)
+const generateSteps = (rawSteps: any): Array<StepInterface> => {
+  return rawSteps;
+};
 
-  //   res.status(200).send(JSON.stringify(data));
-  // } catch (err) {
-  //   console.error(err)
-  // }
+const createPlaybook = (req: any, res: any): any => {
+  const { playbookData } = req.body;
+
+  const playbook: PlaybookInterface = {
+    name: playbookData.name,
+    createdAt: playbookData.createdAt,
+    createdBy: playbookData.createdBy,
+    steps: generateSteps(playbookData.content),
+  }
+  
+  try {
+    fs.appendFile(DATABASE_PATH, JSON.stringify(playbook), err => {
+      if (err) {
+        console.error(err)
+        return
+      }
+    })
+
+    res.status(200);
+  } catch (err) {
+    console.error(err)
+  }
+
+  res.status(200);
 };
 
 export default createPlaybook;

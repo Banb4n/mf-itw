@@ -2,9 +2,9 @@ import express from 'express';
 import { getPlaybooks, createPlaybook } from './api';
 
 const app = express();
-const PORT = 3001;
+const PORT = 3002;
 
-app.post('/playbooks/create', createPlaybook);
+app.post('/playbooks/create', (req, res) => createPlaybook(req, res));
 app.get("/playbooks", getPlaybooks);
 
 app.listen(PORT, () => {

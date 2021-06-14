@@ -8,7 +8,7 @@ const getPlaybooks = (req: express.Request, res: express.Response): any => {
     const data: Object = fs.readFileSync(DATABASE_PATH, 'utf8')
     console.log(data)
 
-    res.status(200).send(JSON.stringify(data));
+    res.json({data});
   } catch (err) {
     console.error(err)
 }};

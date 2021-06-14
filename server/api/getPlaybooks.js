@@ -9,7 +9,7 @@ var getPlaybooks = function (req, res) {
     try {
         var data = fs_1.default.readFileSync(DATABASE_PATH, 'utf8');
         console.log(data);
-        res.status(200).send(JSON.stringify(data));
+        res.json({ data: data });
     }
     catch (err) {
         console.error(err);

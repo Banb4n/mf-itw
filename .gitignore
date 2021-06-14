@@ -12,7 +12,7 @@ client/node_modules
 /build
 
 # misc
-.DS_Store
+.DS_Storeg
 .env.local
 .env.development.local
 .env.test.local

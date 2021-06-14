@@ -2,7 +2,7 @@ enum TYPES {
   'handler', 'custom', 'action', 'mail'
 }
 
-interface Step {
+export interface StepInterface {
   name: string;
   type: TYPES;
   action: string;
@@ -10,11 +10,9 @@ interface Step {
   callback: string;
 }
 
-interface Playbook {
+export interface PlaybookInterface {
   name: string;
   createdAt: Date;
   createdBy: string;
-  steps: Array<Step>;
+  steps: Array<StepInterface>;
 }
-
-export { Step, Playbook };
