@@ -1,6 +1,6 @@
 # ITW
 
-# Step to run the app
+## Step to run the app
 
 Go in `/server` and run
 ``` 
